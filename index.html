@@ -2,14 +2,17 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Done Barang By Rendzz</title>
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: #fefefe;
-      padding: 30px;
       color: #1c1c1e;
       transition: all 0.3s ease;
+      padding: 15px;
+      max-width: 480px;
+      margin: auto;
     }
 
     body.dark-mode {
@@ -19,29 +22,28 @@
 
     h2 {
       text-align: center;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 600;
-      margin-bottom: 30px;
+      margin-bottom: 24px;
     }
 
     label {
       font-size: 14px;
       font-weight: 500;
-      margin-top: 15px;
+      margin-top: 12px;
       display: block;
     }
 
     input {
       width: 100%;
-      padding: 12px;
-      border-radius: 12px;
+      padding: 10px;
+      border-radius: 10px;
       border: none;
       background: #f2f2f7;
-      margin-top: 8px;
-      font-size: 16px;
+      margin-top: 6px;
+      font-size: 15px;
       outline: none;
       box-shadow: inset 0 0 0 1px #d1d1d6;
-      transition: 0.3s;
     }
 
     body.dark-mode input {
@@ -52,17 +54,15 @@
 
     button {
       width: 100%;
-      padding: 14px;
-      margin-top: 25px;
+      padding: 12px;
+      margin-top: 20px;
       background: #007aff;
       color: white;
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 600;
       border: none;
-      border-radius: 12px;
+      border-radius: 10px;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      transition: 0.2s ease;
     }
 
     button:active {
@@ -71,10 +71,10 @@
     }
 
     #result {
-      margin-top: 25px;
+      margin-top: 20px;
       background: #f2f2f7;
-      padding: 20px;
-      border-radius: 14px;
+      padding: 15px;
+      border-radius: 12px;
       font-weight: 500;
       white-space: pre-wrap;
       display: none;
@@ -89,19 +89,18 @@
       display: none;
       margin-top: 15px;
       width: 100%;
-      padding: 12px;
+      padding: 10px;
       background: #34c759;
       color: white;
       border: none;
-      border-radius: 12px;
-      font-size: 16px;
-      cursor: pointer;
+      border-radius: 10px;
+      font-size: 15px;
       font-weight: 600;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
     }
 
     .footer {
-      margin-top: 40px;
+      margin-top: 30px;
       text-align: center;
       font-style: italic;
       font-size: 13px;
@@ -119,16 +118,16 @@
       transform: translateX(-50%) scale(0.6);
       background: rgba(240, 240, 240, 0.85);
       color: #000;
-      padding: 12px 24px;
-      border-radius: 28px;
+      padding: 10px 20px;
+      border-radius: 24px;
       font-weight: 500;
       opacity: 0;
       pointer-events: none;
       transition: transform 0.4s ease, opacity 0.3s ease;
       z-index: 999;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-      max-width: 80%;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      max-width: 90%;
       text-align: center;
     }
 
@@ -139,20 +138,25 @@
 
     .mode-toggle {
       position: fixed;
-      top: 15px;
-      right: 20px;
+      top: 10px;
+      right: 15px;
       background: #ddd;
-      padding: 6px 12px;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: 0.3s;
-      font-size: 14px;
+      padding: 5px 10px;
+      border-radius: 18px;
+      font-size: 13px;
       font-weight: 600;
+      cursor: pointer;
     }
 
     body.dark-mode .mode-toggle {
       background: #444;
       color: #fff;
+    }
+
+    /* Iklan responsif */
+    .ads {
+      margin: 20px 0;
+      text-align: center;
     }
   </style>
 </head>
@@ -178,6 +182,11 @@
 
   <div id="notify">Teks berhasil disalin!</div>
 
+  <!-- Script Iklan Adsterra Contoh (bisa ganti) -->
+  <div class="ads">
+    <script type='text/javascript' src='//pl15535536.toprevenuegate.com/c4/7d/30/c47d30327c647d4730fc4a2fae4e276f.js'></script>
+  </div>
+
   <div class="footer">
     “Teruslah melangkah walau pelan, yang penting tetap jalan!”
   </div>
@@ -189,7 +198,6 @@
       notif.style.opacity = "1";
       notif.style.transform = "translateX(-50%) scale(1)";
       notif.style.pointerEvents = "auto";
-
       setTimeout(() => {
         notif.style.opacity = "0";
         notif.style.transform = "translateX(-50%) scale(0.6)";
@@ -201,14 +209,11 @@
       const nama = document.getElementById("nama").value.trim();
       const harga = document.getElementById("harga").value.trim();
       const seller = document.getElementById("seller").value.trim();
-
       if (!nama || !harga || !seller) {
         showToast("Semua kolom wajib diisi!");
         return;
       }
-
       const hasil = `Transaksi Berhasil!\n\nBarang: ${nama}\nHarga: ${harga}\nSeller: ${seller}\n\nBARANG YANG SUDAH DI BELI TIDAK DAPAT DI KEMBALIKAN ATAU DI REFF!\nTERIMAKASIH TELAH BERBELANJA! JANGAN KAPOK YAA!`;
-
       document.getElementById("result").textContent = hasil;
       document.getElementById("result").style.display = "block";
       document.querySelector(".copy-btn").style.display = "inline-block";
